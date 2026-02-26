@@ -39,7 +39,7 @@ public class FooterPanel extends Panel {
 
 	private void initWidgets() {
 		this.lblCopyright = new Label();
-		this.lblCopyright.setText("(C) 2018 - Viktor Drei");
+		this.lblCopyright.setText("© 2018 - Viktor Drei");
 		super.add(this.lblCopyright);
 
 		this.lblVersion = new Label();
