@@ -9,7 +9,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import com.pixinator.mbtool.mod.Mod;
-import com.pixinator.mbtool.Utility;
+import com.pixinator.mbtool.utils.Utils;
 import com.pixinator.mbtool.mod.Item;
 import com.pixinator.mbtool.ui.ImageLayout;
 import com.pixinator.mbtool.ui.widget.Label;
@@ -63,7 +63,7 @@ public class ItemsCellRenderer implements ListCellRenderer<Item> {
 		this.lblName.setSize(list.getWidth() - this.lblName.getX() - 4, 32);
 
 		if (isSelected) {
-			this.pnlItem.setBackground(Utility.COL_E_MAIN);
+			this.pnlItem.setBackground(Utils.COL_E_MAIN);
 			this.lblID.setForeground(Color.WHITE);
 			this.lblName.setForeground(Color.WHITE);
 		} else {

@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
-import com.pixinator.mbtool.Utility;
+import com.pixinator.mbtool.utils.Utils;
 
 public class Button extends JButton implements ActionListener {
 	// ################################################################
@@ -43,19 +43,19 @@ public class Button extends JButton implements ActionListener {
 	private void updateColors() {
 		if (super.isEnabled()) {
 			if (super.getModel().isPressed()) {
-				super.setBackground(Utility.COL_E_MAIN);
-				super.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Utility.COL_E_BORDER_L));
+				super.setBackground(Utils.COL_E_MAIN);
+				super.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Utils.COL_E_BORDER_L));
 			} else if (super.hasFocus() || super.getModel().isRollover()) {
-				super.setBackground(Utility.COL_E_MAIN);
-				super.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Utility.COL_E_BORDER_D));
+				super.setBackground(Utils.COL_E_MAIN);
+				super.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Utils.COL_E_BORDER_D));
 			} else {
-				super.setBackground(Utility.COL_E_MAIN);
-				super.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Utility.COL_E_BORDER_M));
+				super.setBackground(Utils.COL_E_MAIN);
+				super.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Utils.COL_E_BORDER_M));
 			}
 
 		} else {
-			super.setBackground(Utility.COL_D_MAIN);
-			super.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Utility.COL_D_BORDER_M));
+			super.setBackground(Utils.COL_D_MAIN);
+			super.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Utils.COL_D_BORDER_M));
 		}
 	}
 

@@ -7,6 +7,7 @@ import com.pixinator.mbtool.io.ContentManager;
 import com.pixinator.mbtool.io.ContentManager.DirectoryType;
 import com.pixinator.mbtool.mod.Mod;
 import com.pixinator.mbtool.ui.MainFrame;
+import com.pixinator.mbtool.utils.Utils;
 
 public class Main {
 
@@ -14,10 +15,10 @@ public class Main {
 		// LOAD IMAGES
 		ContentManager content = new ContentManager(DirectoryType.PACKED);
 		try {
-			Utility.back01 = content.loadImage("Graphics/back_01.png");
-			Utility.back02 = content.loadImage("Graphics/back_02.png");
-			Utility.back03 = content.loadImage("Graphics/back_03.png");
-			Utility.iconNoImage = content.loadImage("Graphics/icon_no_image.png");
+			Utils.back01 = content.loadImage("Graphics/back_01.png");
+			Utils.back02 = content.loadImage("Graphics/back_02.png");
+			Utils.back03 = content.loadImage("Graphics/back_03.png");
+			Utils.iconNoImage = content.loadImage("Graphics/icon_no_image.png");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -6,7 +6,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import com.pixinator.mbtool.Utility;
+import com.pixinator.mbtool.utils.Utils;
 
 public class Panel extends JPanel implements Runnable {
 	// ############################################################
@@ -28,7 +28,7 @@ public class Panel extends JPanel implements Runnable {
 		super.setLayout(null);
 		super.setOpaque(true);
 		super.setBackground(Color.WHITE);
-		this.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Utility.COL_D_BORDER_M));
+		this.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Utils.COL_D_BORDER_M));
 
 		this.thread = new Thread(this);
 	}

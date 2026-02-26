@@ -11,7 +11,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import com.pixinator.mbtool.Utility;
+import com.pixinator.mbtool.utils.Utils;
 
 public class TextBox extends JTextField implements DocumentListener {
 	// ############################################################
@@ -30,9 +30,9 @@ public class TextBox extends JTextField implements DocumentListener {
 		super.getDocument().addDocumentListener(this);
 
 		super.setBorder(
-				new CompoundBorder(new MatteBorder(2, 2, 2, 2, Utility.COL_E_BORDER_M), new EmptyBorder(2, 2, 2, 2)));
+				new CompoundBorder(new MatteBorder(2, 2, 2, 2, Utils.COL_E_BORDER_M), new EmptyBorder(2, 2, 2, 2)));
 		super.setForeground(Color.BLACK);
-		super.setSelectionColor(Utility.COL_E_MAIN);
+		super.setSelectionColor(Utils.COL_E_MAIN);
 		super.setSelectedTextColor(Color.WHITE);
 
 		super.setText("");

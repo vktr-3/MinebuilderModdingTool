@@ -1,10 +1,10 @@
-package com.pixinator.mbtool;
+package com.pixinator.mbtool.utils;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
-public class Utility {
+public class Utils {
 	// ############################################################
 	// # COLORS
 	// ############################################################

@@ -4,7 +4,7 @@ import java.awt.event.ComponentEvent;
 
 import javax.swing.BorderFactory;
 
-import com.pixinator.mbtool.Utility;
+import com.pixinator.mbtool.utils.Utils;
 import com.pixinator.mbtool.ui.MainFrame;
 import com.pixinator.mbtool.ui.widget.Label;
 import com.pixinator.mbtool.ui.widget.Panel;
@@ -25,8 +25,8 @@ public class FooterPanel extends Panel {
 
 	public FooterPanel(MainFrame frame) {
 		super();
-		super.setBackground(Utility.COL_E_MAIN);
-		super.setBorder(BorderFactory.createMatteBorder(2, 0, 0, 0, Utility.COL_E_MAIN.darker()));
+		super.setBackground(Utils.COL_E_MAIN);
+		super.setBorder(BorderFactory.createMatteBorder(2, 0, 0, 0, Utils.COL_E_MAIN.darker()));
 
 		// this.frame = frame;
 

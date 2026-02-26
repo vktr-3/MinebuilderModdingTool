@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JComponent;
 
-import com.pixinator.mbtool.Utility;
+import com.pixinator.mbtool.utils.Utils;
 import com.pixinator.mbtool.ui.ImageLayout;
 
 public class PictureBox extends JComponent {
@@ -103,7 +103,7 @@ public class PictureBox extends JComponent {
 		if (backgroundImage != null) {
 			this.backgroundImage = backgroundImage;
 		} else {
-			this.backgroundImage = Utility.iconNoImage;
+			this.backgroundImage = Utils.iconNoImage;
 		}
 
 		this.repaint();

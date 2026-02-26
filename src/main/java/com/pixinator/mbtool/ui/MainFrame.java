@@ -6,7 +6,7 @@ import java.awt.event.ComponentListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import com.pixinator.mbtool.Utility;
+import com.pixinator.mbtool.utils.Utils;
 import com.pixinator.mbtool.ui.mainframe.FooterPanel;
 import com.pixinator.mbtool.ui.mainframe.HeaderPanel;
 import com.pixinator.mbtool.ui.mainframe.Mode;
@@ -56,7 +56,7 @@ public class MainFrame extends Frame implements ComponentListener, WindowListene
 
 		this.imgBack = new PictureBox();
 		this.imgBack.setImageLayout(ImageLayout.ZoomFill);
-		this.imgBack.setBackgroundImage(Utility.getBack());
+		this.imgBack.setBackgroundImage(Utils.getBack());
 		super.add(this.imgBack);
 
 		this.pnlModes = new ModesPanel(this);
