@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation files("./libs/gdx-1.9.7.jar")
+    implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
 
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
