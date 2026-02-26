@@ -8,7 +8,7 @@ import javax.swing.ListCellRenderer;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import com.pixinator.mbtool.Mod;
+import com.pixinator.mbtool.mod.Mod;
 import com.pixinator.mbtool.Utility;
 import com.pixinator.mbtool.mod.Item;
 import com.pixinator.mbtool.ui.ImageLayout;

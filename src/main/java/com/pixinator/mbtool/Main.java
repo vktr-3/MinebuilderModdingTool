@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import com.pixinator.mbtool.io.ContentManager;
 import com.pixinator.mbtool.io.ContentManager.DirectoryType;
+import com.pixinator.mbtool.mod.Mod;
 import com.pixinator.mbtool.ui.MainFrame;
 
 public class Main {

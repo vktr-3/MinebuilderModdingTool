@@ -1,4 +1,4 @@
-package com.pixinator.mbtool;
+package com.pixinator.mbtool.mod;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -10,10 +10,6 @@ import java.util.List;
 
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
-import com.pixinator.mbtool.mod.Item;
-import com.pixinator.mbtool.mod.ItemTexture;
-import com.pixinator.mbtool.mod.ModEvent;
-import com.pixinator.mbtool.mod.ModListener;
 import com.pixinator.mbtool.mod.item.Equip;
 import com.pixinator.mbtool.mod.item.Food;
 import com.pixinator.mbtool.mod.item.Sword;

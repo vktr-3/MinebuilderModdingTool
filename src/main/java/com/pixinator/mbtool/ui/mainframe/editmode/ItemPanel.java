@@ -2,7 +2,7 @@ package com.pixinator.mbtool.ui.mainframe.editmode;
 
 import java.awt.Color;
 
-import com.pixinator.mbtool.Mod;
+import com.pixinator.mbtool.mod.Mod;
 import com.pixinator.mbtool.mod.Item;
 import com.pixinator.mbtool.mod.item.Equip;
 import com.pixinator.mbtool.mod.item.Food;
