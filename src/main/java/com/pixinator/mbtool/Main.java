@@ -3,6 +3,7 @@ package com.pixinator.mbtool;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import com.pixinator.mbtool.config.ApplicationConfig;
 import com.pixinator.mbtool.io.ContentManager;
 import com.pixinator.mbtool.io.ContentManager.DirectoryType;
 import com.pixinator.mbtool.mod.Mod;
@@ -12,6 +13,8 @@ import com.pixinator.mbtool.utils.Utils;
 public class Main {
 
 	public static void main(String[] args) {
+        ApplicationConfig.getInstance(); // loads config file
+
 		// LOAD IMAGES
 		ContentManager content = new ContentManager(DirectoryType.PACKED);
 		try {

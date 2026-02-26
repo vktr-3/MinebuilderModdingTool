@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.badlogic.gdx.utils.XmlReader;
 import com.badlogic.gdx.utils.XmlReader.Element;
+import com.pixinator.mbtool.config.ApplicationConfig;
 import com.pixinator.mbtool.mod.item.Equip;
 import com.pixinator.mbtool.mod.item.Food;
 import com.pixinator.mbtool.mod.item.Sword;
@@ -38,7 +39,8 @@ public class Mod {
 	// ############################################################
 
 	public static void load() throws FileNotFoundException, IOException {
-		loadItems();
+		File filesDir = new File(ApplicationConfig.getInstance().getModDirectory());
+		loadItems(filesDir);
 	}
 
 	public static void save() {
@@ -53,8 +55,8 @@ public class Mod {
 		}
 	}
 
-	private static void loadItems() throws FileNotFoundException, IOException {
-		Element root = new XmlReader().parse(new FileReader(new File("files/Data/items.xml")));
+	private static void loadItems(File filesDir) throws FileNotFoundException, IOException {
+		Element root = new XmlReader().parse(new FileReader(new File(filesDir, "Data/items.xml")));
 		for (Element itemElement : root.getChildrenByName("item")) {
 			int id = 0;
 			String name = "";
