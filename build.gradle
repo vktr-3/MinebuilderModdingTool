@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'com.vktr.mbmodtool'
+group = 'com.vktr3.mbmodtool'
 version = '1.0-SNAPSHOT'
 
 repositories {
