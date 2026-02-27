@@ -1,4 +1,4 @@
-**[ The tool and this document is currently still early in development. ]**
+**[ MinebuilderModdingTool and this document are currently still work in progress. ]**
 
 # Minebuilder Modding Tool
 
@@ -176,35 +176,3 @@ Currently supported:
 New versions will be supported when available.
 
 Older versions can be supported on request.
-
----
-
-# Planned Architecture
-
-The tool internally converts Minebuilder XML files into an internal data format.
-
-This allows:
-
-* Easier editing
-* Validation
-* Consistent exports
-
-The final export produces a ready-to-use Minebuilder mod.
-
----
-
-# Contributing
-
-This project will become open source in the future.
-
-Pull requests and suggestions will be welcome.
-
----
-
-# Motivation
-
-Minebuilder modding currently requires manual editing of multiple files.
-
-This process is slow and error-prone.
-
-Minebuilder Modding Tool aims to make modding faster, safer and more accessible.
