@@ -1,5 +1,7 @@
-package com.pixinator.mbtool;
+package com.vktr3.mbmodtool;
 
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.pixinator.mbtool.config.ApplicationConfig;
 import com.pixinator.mbtool.io.ContentManager;
 import com.pixinator.mbtool.io.ContentManager.DirectoryType;
@@ -49,6 +51,13 @@ public class Main {
   }
 
   private static void startLibGDX() {
-    System.err.println("TODO: IMPLEMENT LIBGDX START UP");
+    Lwjgl3ApplicationConfiguration gdxConfig = new Lwjgl3ApplicationConfiguration();
+    gdxConfig.setTitle("Minebuilder Modding Tool");
+    gdxConfig.useVsync(true);
+    gdxConfig.setForegroundFPS(Lwjgl3ApplicationConfiguration.getDisplayMode().refreshRate + 1);
+    gdxConfig.setWindowedMode(640, 480);
+    gdxConfig.setWindowIcon("app-icons/128.png", "app-icons/64.png", "app-icons/32.png", "app-icons/16.png");
+
+    new Lwjgl3Application(new MBModdingTool(), gdxConfig);
   }
 }
