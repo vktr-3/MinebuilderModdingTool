@@ -9,6 +9,7 @@ public class ApplicationConfig {
 
     private static ApplicationConfig instance;
 
+    private UIFramework uiFramework;
     private String modDirectory;
 
     public static ApplicationConfig getInstance() {
@@ -29,9 +30,15 @@ public class ApplicationConfig {
         }
 
         ApplicationConfig config = new ApplicationConfig();
-        config.modDirectory = props.get("mod.directory").toString();
+
+        config.uiFramework = UIFramework.valueOf(props.getProperty("ui.framework", "AWT").toUpperCase());
+        config.modDirectory = props.getProperty("mod.directory", "./files");
 
         return config;
+    }
+
+    public UIFramework getUIFramework() {
+        return uiFramework;
     }
 
     public String getModDirectory() {

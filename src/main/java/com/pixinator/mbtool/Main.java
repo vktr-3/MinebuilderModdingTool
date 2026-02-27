@@ -13,28 +13,42 @@ import com.pixinator.mbtool.utils.Utils;
 public class Main {
 
 	public static void main(String[] args) {
-        ApplicationConfig.getInstance(); // loads config file
+    ApplicationConfig appConfig = ApplicationConfig.getInstance(); // triggers initial load of config
 
-		// LOAD IMAGES
-		ContentManager content = new ContentManager(DirectoryType.PACKED);
-		try {
-			Utils.back01 = content.loadImage("Graphics/back_01.png");
-			Utils.back02 = content.loadImage("Graphics/back_02.png");
-			Utils.back03 = content.loadImage("Graphics/back_03.png");
-			Utils.iconNoImage = content.loadImage("Graphics/icon_no_image.png");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		try {
-			Mod.load();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		new MainFrame().setVisible(true);
+    switch (appConfig.getUIFramework()) {
+      case AWT:
+        startAWT();
+        break;
+      case LIBGDX:
+        startLibGDX();
+        break;
+    }
 	}
 
+  private static void startAWT() {
+    // LOAD IMAGES
+    ContentManager content = new ContentManager(DirectoryType.PACKED);
+    try {
+      Utils.back01 = content.loadImage("Graphics/back_01.png");
+      Utils.back02 = content.loadImage("Graphics/back_02.png");
+      Utils.back03 = content.loadImage("Graphics/back_03.png");
+      Utils.iconNoImage = content.loadImage("Graphics/icon_no_image.png");
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    try {
+      Mod.load();
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    new MainFrame().setVisible(true);
+  }
+
+  private static void startLibGDX() {
+    System.err.println("TODO: IMPLEMENT LIBGDX START UP");
+  }
 }

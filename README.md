@@ -4,7 +4,7 @@
 
 Minebuilder Modding Tool is a desktop application that simplifies creating and editing mods for Minebuilder.
 
-The goal of this tool is to make Minebuilder modding accessible and less error-prone by replacing manual file editing 
+The goal of this tool is to make Minebuilder modding accessible and less error-prone by replacing manual file editing
 with a graphical interface.
 
 Instead of manually editing multiple XML files and keeping track of IDs and filenames, the tool manages everything
@@ -62,6 +62,26 @@ application.properties
 
 The file must be placed in the same directory as the `.jar` file.
 
+## Launch Mode
+
+Defines in which mode the tool should launch.
+
+### Mode AWT
+
+Uses Java AWT to display UI. This will be removed as soon as libGDX has fully replaced current state with AWT.
+
+```PROPERTIES
+tool.mode=AWT
+```
+
+### Mode libGDX
+
+Uses the libGDX framework. This is currently in development and will replace AWT in future.
+
+```PROPERTIES
+tool.mode=libGDX
+```
+
 ## Mod Root Directory
 
 Defines the `files` directory of the Minebuilder mod.
@@ -73,22 +93,14 @@ Relative and absolute paths are supported.
 ### Relative Path
 
 ```PROPERTIES
-mod.directory = ./files
+mod.directory=./files
 ```
 
 ### Absolute Path
 
 ```PROPERTIES
-mod.directory = C:/Users/test/Mods/files
+mod.directory=C:/Users/test/Mods/files
 ```
-
-### Default Value
-
-```PROPERTIES
-mod.directory = ./files
-```
-
-If the directory is invalid, the tool will show an error message during startup.
 
 ---
 
@@ -135,7 +147,7 @@ application.properties
 Example:
 
 ```PROPERTIES
-mod.directory = ./files
+mod.directory=./files
 ```
 
 ## 3. Start the Tool
