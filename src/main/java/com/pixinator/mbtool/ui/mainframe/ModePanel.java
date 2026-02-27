@@ -4,31 +4,31 @@ import com.pixinator.mbtool.ui.MainFrame;
 import com.pixinator.mbtool.ui.widget.Panel;
 
 public abstract class ModePanel extends Panel {
-	// ############################################################
-	// # VARIABLES
-	// ############################################################
+  // ############################################################
+  // # VARIABLES
+  // ############################################################
 
-	protected MainFrame frame;
+  protected MainFrame frame;
 
-	// ############################################################
-	// # CONSTRUCTORS
-	// ############################################################
+  // ############################################################
+  // # CONSTRUCTORS
+  // ############################################################
 
-	public ModePanel(MainFrame frame) {
-		super();
+  public ModePanel(MainFrame frame) {
+    super();
 
-		this.frame = frame;
+    this.frame = frame;
 
-		this.initWidgets();
-	}
+    this.initWidgets();
+  }
 
-	// ############################################################
-	// # METHODS
-	// ############################################################
+  // ############################################################
+  // # METHODS
+  // ############################################################
 
-	protected abstract void initWidgets();
+  protected abstract void initWidgets();
 
-	public abstract void componentResized();
+  public abstract void componentResized();
 
-	public abstract void windowActivated();
+  public abstract void windowActivated();
 }

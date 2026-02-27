@@ -1,58 +1,57 @@
 package com.pixinator.mbtool.ui.mainframe;
 
-import java.awt.event.ComponentEvent;
-
-import javax.swing.BorderFactory;
-
-import com.pixinator.mbtool.utils.Utils;
 import com.pixinator.mbtool.ui.MainFrame;
 import com.pixinator.mbtool.ui.widget.Label;
 import com.pixinator.mbtool.ui.widget.Panel;
+import com.pixinator.mbtool.utils.Utils;
+
+import javax.swing.*;
+import java.awt.event.ComponentEvent;
 
 public class FooterPanel extends Panel {
-	// ############################################################
-	// # VARIABLES
-	// ############################################################
+  // ############################################################
+  // # VARIABLES
+  // ############################################################
 
-	// private MainFrame frame;
+  // private MainFrame frame;
 
-	private Label lblCopyright;
-	private Label lblVersion;
+  private Label lblCopyright;
+  private Label lblVersion;
 
-	// ############################################################
-	// # CONSTRUCTORS
-	// ############################################################
+  // ############################################################
+  // # CONSTRUCTORS
+  // ############################################################
 
-	public FooterPanel(MainFrame frame) {
-		super();
-		super.setBackground(Utils.COL_E_MAIN);
-		super.setBorder(BorderFactory.createMatteBorder(2, 0, 0, 0, Utils.COL_E_MAIN.darker()));
+  public FooterPanel(MainFrame frame) {
+    super();
+    super.setBackground(Utils.COL_E_MAIN);
+    super.setBorder(BorderFactory.createMatteBorder(2, 0, 0, 0, Utils.COL_E_MAIN.darker()));
 
-		// this.frame = frame;
+    // this.frame = frame;
 
-		this.initWidgets();
-	}
+    this.initWidgets();
+  }
 
-	// ############################################################
-	// # METHODS
-	// ############################################################
+  // ############################################################
+  // # METHODS
+  // ############################################################
 
-	private void initWidgets() {
-		this.lblCopyright = new Label();
-		this.lblCopyright.setText("© 2018 - Viktor Drei");
-		super.add(this.lblCopyright);
+  private void initWidgets() {
+    this.lblCopyright = new Label();
+    this.lblCopyright.setText("© 2018 - Viktor Drei");
+    super.add(this.lblCopyright);
 
-		this.lblVersion = new Label();
-		this.lblVersion.setText("Ver.: 1.0");
-		super.add(this.lblVersion);
-	}
+    this.lblVersion = new Label();
+    this.lblVersion.setText("Ver.: 1.0");
+    super.add(this.lblVersion);
+  }
 
-	public void componentResized(ComponentEvent e) {
-		this.lblCopyright.setLocation(12, 0);
-		this.lblCopyright.setSize(this.lblCopyright.getPreferredSize().width, super.getHeight());
+  public void componentResized(ComponentEvent e) {
+    this.lblCopyright.setLocation(12, 0);
+    this.lblCopyright.setSize(this.lblCopyright.getPreferredSize().width, super.getHeight());
 
-		this.lblVersion.setLocation(super.getWidth() - this.lblVersion.getPreferredSize().width - 12, 0);
-		this.lblVersion.setSize(this.lblVersion.getPreferredSize().width, super.getHeight());
-	}
+    this.lblVersion.setLocation(super.getWidth() - this.lblVersion.getPreferredSize().width - 12, 0);
+    this.lblVersion.setSize(this.lblVersion.getPreferredSize().width, super.getHeight());
+  }
 
 }

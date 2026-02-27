@@ -1,18 +1,17 @@
 package com.pixinator.mbtool.ui.widget;
 
-import java.awt.Color;
-
-import javax.swing.JLabel;
+import javax.swing.*;
+import java.awt.*;
 
 public class Label extends JLabel {
-	// ############################################################
-	// # CONSTRUCTORS
-	// ############################################################
+  // ############################################################
+  // # CONSTRUCTORS
+  // ############################################################
 
-	public Label() {
-		super();
+  public Label() {
+    super();
 
-		super.setForeground(Color.WHITE);
-	}
+    super.setForeground(Color.WHITE);
+  }
 
 }

@@ -1,8 +1,5 @@
 package com.pixinator.mbtool;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import com.pixinator.mbtool.config.ApplicationConfig;
 import com.pixinator.mbtool.io.ContentManager;
 import com.pixinator.mbtool.io.ContentManager.DirectoryType;
@@ -10,9 +7,12 @@ import com.pixinator.mbtool.mod.Mod;
 import com.pixinator.mbtool.ui.MainFrame;
 import com.pixinator.mbtool.utils.Utils;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class Main {
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
     ApplicationConfig appConfig = ApplicationConfig.getInstance(); // triggers initial load of config
 
     switch (appConfig.getUIFramework()) {
@@ -23,7 +23,7 @@ public class Main {
         startLibGDX();
         break;
     }
-	}
+  }
 
   private static void startAWT() {
     // LOAD IMAGES

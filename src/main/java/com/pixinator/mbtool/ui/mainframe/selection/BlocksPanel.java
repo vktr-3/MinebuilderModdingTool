@@ -4,28 +4,25 @@ import com.pixinator.mbtool.ui.MainFrame;
 import com.pixinator.mbtool.ui.mainframe.ModePanel;
 
 public class BlocksPanel extends ModePanel {
-	// ############################################################
-	// # CONSTRUCTORS
-	// ############################################################
+  // ############################################################
+  // # CONSTRUCTORS
+  // ############################################################
 
-	public BlocksPanel(MainFrame frame) {
-		super(frame);
-	}
+  public BlocksPanel(MainFrame frame) {
+    super(frame);
+  }
 
-	// ############################################################
-	// # METHODS
-	// ############################################################
+  // ############################################################
+  // # METHODS
+  // ############################################################
 
-	@Override
-	protected void initWidgets() {
-	}
+  @Override
+  protected void initWidgets() {}
 
-	@Override
-	public void componentResized() {
-	}
+  @Override
+  public void componentResized() {}
 
-	@Override
-	public void windowActivated() {
-	}
+  @Override
+  public void windowActivated() {}
 
 }

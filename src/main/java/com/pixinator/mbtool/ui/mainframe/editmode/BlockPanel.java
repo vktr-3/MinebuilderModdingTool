@@ -1,42 +1,42 @@
 package com.pixinator.mbtool.ui.mainframe.editmode;
 
-import java.awt.Color;
-
 import com.pixinator.mbtool.ui.MainFrame;
 import com.pixinator.mbtool.ui.mainframe.ModePanel;
 import com.pixinator.mbtool.ui.widget.Label;
 
+import java.awt.*;
+
 public class BlockPanel extends ModePanel {
-	// ############################################################
-	// # VARIABLES
-	// ############################################################
+  // ############################################################
+  // # VARIABLES
+  // ############################################################
 
-	private Label lblTest;
+  private Label lblTest;
 
-	// ############################################################
-	// # CONSTRUCTORS
-	// ############################################################
+  // ############################################################
+  // # CONSTRUCTORS
+  // ############################################################
 
-	public BlockPanel(MainFrame frame) {
-		super(frame);
-	}
+  public BlockPanel(MainFrame frame) {
+    super(frame);
+  }
 
-	@Override
-	protected void initWidgets() {
-		this.lblTest = new Label();
-		this.lblTest.setForeground(Color.BLACK);
-		this.lblTest.setText("Blocks");
-		super.add(this.lblTest);
-	}
+  @Override
+  protected void initWidgets() {
+    this.lblTest = new Label();
+    this.lblTest.setForeground(Color.BLACK);
+    this.lblTest.setText("Blocks");
+    super.add(this.lblTest);
+  }
 
-	@Override
-	public void componentResized() {
-		this.lblTest.setLocation(12, 12);
-		this.lblTest.setSize(this.lblTest.getPreferredSize().width, this.lblTest.getPreferredSize().height);
-	}
+  @Override
+  public void componentResized() {
+    this.lblTest.setLocation(12, 12);
+    this.lblTest.setSize(this.lblTest.getPreferredSize().width, this.lblTest.getPreferredSize().height);
+  }
 
-	@Override
-	public void windowActivated() {
-	}
+  @Override
+  public void windowActivated() {
+  }
 
 }

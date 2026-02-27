@@ -1,11 +1,11 @@
 package com.pixinator.mbtool.mod;
 
 public interface ModListener {
-	// ############################################################
-	// # METHODS
-	// ############################################################
+  // ############################################################
+  // # METHODS
+  // ############################################################
 
-	public void onItemChange(ModEvent e);
+  public void onItemChange(ModEvent e);
 
-	public void onBlockChange(ModEvent e);
+  public void onBlockChange(ModEvent e);
 }
