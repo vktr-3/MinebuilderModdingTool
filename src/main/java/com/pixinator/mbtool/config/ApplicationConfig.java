@@ -24,7 +24,7 @@ public class ApplicationConfig {
       props.load(fis);
       fis.close();
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      e.printStackTrace();
     }
 
     ApplicationConfig config = new ApplicationConfig();
