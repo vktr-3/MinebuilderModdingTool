@@ -19,6 +19,8 @@ public class MBModdingTool extends ApplicationAdapter {
   private Viewport viewport;
 
   private UIDocument ui;
+  private Panel pnlRoot;
+  private Panel pnlInner;
 
   @Override
   public void create() {
@@ -38,12 +40,11 @@ public class MBModdingTool extends ApplicationAdapter {
   }
 
   private void initUI() {
-    Panel pnlRoot = new Panel();
+    pnlRoot = new Panel();
     pnlRoot.setBackgroundColor(Color.BLACK);
 
-    Panel pnlInner = new Panel();
-    pnlInner.setBackgroundColor(Color.RED);
-    pnlInner.setBounds(8, 8, pnlRoot.getWidth() - 16, pnlRoot.getHeight() - 16);
+    pnlInner = new Panel();
+    pnlInner.setBackgroundColor(new Color(1, 0.75F, 1, 0.5F));
     pnlRoot.addChild(pnlInner);
 
     ui = new UIDocument(pnlRoot);
@@ -64,7 +65,13 @@ public class MBModdingTool extends ApplicationAdapter {
   @Override
   public void resize(int width, int height) {
     viewport.update(width, height, true);
+
+    resizeUI(width, height);
+  }
+
+  private void resizeUI(int width, int height) {
     ui.setSize(width, height);
+    pnlInner.setBounds(8, 8, pnlRoot.getWidth() - 16, pnlRoot.getHeight() - 16);
   }
 
   @Override

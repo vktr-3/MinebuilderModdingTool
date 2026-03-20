@@ -10,7 +10,7 @@ public class Panel extends UIContainer {
 
   @Override
   protected void drawBackground(SpriteBatch batch, UIRenderer renderer) {
-    renderer.drawRect(batch, x, y, width, height, backgroundColor);
+    renderer.drawRect(batch, getAbsoluteX(), getAbsoluteY(), width, height, backgroundColor);
   }
 
   public Color getBackgroundColor() {

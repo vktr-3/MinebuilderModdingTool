@@ -29,11 +29,29 @@ public abstract class UIWidget {
     this.parent = parent;
   }
 
-  public void setBounds(float x, float y, float width, float height) {
+  public void setPosition(float x, float y) {
     this.x = x;
     this.y = y;
+  }
+
+  public void setSize(float width, float height) {
     this.width = width;
     this.height = height;
+  }
+
+  public void setBounds(float x, float y, float width, float height) {
+    setPosition(x, y);
+    setSize(width, height);
+  }
+
+  public float getAbsoluteX() {
+    if (parent == null) return x;
+    return parent.getAbsoluteX() + x;
+  }
+
+  public float getAbsoluteY() {
+    if (parent == null) return y;
+    return parent.getAbsoluteY() + y;
   }
 
   public float getX() {
