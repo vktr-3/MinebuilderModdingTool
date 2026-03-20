@@ -71,7 +71,7 @@ Defines in which mode the tool should launch.
 Uses Java AWT to display UI. This will be removed as soon as libGDX has fully replaced current state with AWT.
 
 ```PROPERTIES
-tool.mode=AWT
+ui.framework=AWT
 ```
 
 ### Mode libGDX
@@ -79,7 +79,7 @@ tool.mode=AWT
 Uses the libGDX framework. This is currently in development and will replace AWT in future.
 
 ```PROPERTIES
-tool.mode=libGDX
+ui.framework=libGDX
 ```
 
 ## Mod Root Directory
