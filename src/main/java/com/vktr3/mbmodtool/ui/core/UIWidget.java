@@ -29,6 +29,11 @@ public abstract class UIWidget {
     this.parent = parent;
   }
 
+  public void setBounds(float x, float y, float width, float height) {
+    setPosition(x, y);
+    setSize(width, height);
+  }
+
   public void setPosition(float x, float y) {
     this.x = x;
     this.y = y;
@@ -37,11 +42,6 @@ public abstract class UIWidget {
   public void setSize(float width, float height) {
     this.width = width;
     this.height = height;
-  }
-
-  public void setBounds(float x, float y, float width, float height) {
-    setPosition(x, y);
-    setSize(width, height);
   }
 
   public float getAbsoluteX() {
