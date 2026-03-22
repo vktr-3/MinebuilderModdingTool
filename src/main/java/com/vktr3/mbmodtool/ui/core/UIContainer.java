@@ -12,6 +12,16 @@ public abstract class UIContainer extends UIWidget {
   protected final List<UIWidget> children = new ArrayList<>();
   protected UILayout layout;
 
+  @Override
+  public float measureContentWidth() {
+    return layout != null ? layout.measureContentWidth(this) : 0;
+  }
+
+  @Override
+  public float measureContentHeight() {
+    return layout != null ? layout.measureContentHeight(this) : 0;
+  }
+
   public void updateLayout() {
     if (layout != null) layout.updateLayout(this);
 

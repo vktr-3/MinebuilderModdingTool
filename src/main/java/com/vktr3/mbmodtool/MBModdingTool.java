@@ -12,10 +12,10 @@ import com.vktr3.mbmodtool.ui.core.UIDocument;
 import com.vktr3.mbmodtool.ui.layout.ColumnLayout;
 import com.vktr3.mbmodtool.ui.layout.RowLayout;
 import com.vktr3.mbmodtool.ui.layout.UIAlignment;
-import com.vktr3.mbmodtool.ui.layout.UIVisibility;
 import com.vktr3.mbmodtool.ui.widgets.Panel;
 
 import static com.vktr3.mbmodtool.ui.layout.UILayout.FILL_PARENT;
+import static com.vktr3.mbmodtool.ui.layout.UILayout.WRAP_CONTENT;
 
 public class MBModdingTool extends ApplicationAdapter {
   private AssetManager assets;
@@ -69,7 +69,6 @@ public class MBModdingTool extends ApplicationAdapter {
     Panel pnlContext = new Panel();
     pnlContext.setBackgroundColor(new Color(0, 0.75F, 1, 1));
     pnlContext.setLayoutSize(256, FILL_PARENT);
-    pnlContext.setVisibility(UIVisibility.GONE);
     pnlContent.addChild(pnlContext);
 
     Panel pnlEdit = new Panel();
@@ -78,9 +77,16 @@ public class MBModdingTool extends ApplicationAdapter {
     pnlContent.addChild(pnlEdit);
 
     Panel pnlFooter = new Panel();
-    pnlFooter.setBackgroundColor(new Color(1, 1, 0.75F, 1));
-    pnlFooter.setLayoutSize(512, 64);
+    pnlFooter.setBackgroundColor(new Color(0.25F, 0.35F, 0.25F, 1));
+    pnlFooter.setLayoutSize(WRAP_CONTENT, 64);
+    pnlFooter.setPadding(8);
+    pnlFooter.setLayout(new RowLayout(0, UIAlignment.CENTER));
     pnlRoot.addChild(pnlFooter);
+
+    Panel pnlCopyright = new Panel();
+    pnlCopyright.setBackgroundColor(Color.WHITE);
+    pnlCopyright.setLayoutSize(256, 32);
+    pnlFooter.addChild(pnlCopyright);
 
     ui = new UIDocument(pnlRoot);
   }

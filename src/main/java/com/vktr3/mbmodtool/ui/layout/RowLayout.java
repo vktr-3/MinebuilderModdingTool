@@ -23,6 +23,42 @@ public class RowLayout implements UILayout {
   }
 
   @Override
+  public float measureContentWidth(UIContainer container) {
+    List<UIWidget> children = container.getLayoutAffectedChildren();
+    if (children.isEmpty()) return 0;
+
+    float totalWidth = 0;
+    for (UIWidget child : children) {
+      totalWidth += measureChildWidth(child);
+    }
+    totalWidth += spacing * (children.size() - 1);
+    return totalWidth;
+  }
+
+  @Override
+  public float measureContentHeight(UIContainer container) {
+    float maxHeight = 0;
+    for (UIWidget child : container.getLayoutAffectedChildren()) {
+      maxHeight = Math.max(maxHeight, measureChildHeight(child));
+    }
+    return maxHeight;
+  }
+
+  private float measureChildWidth(UIWidget child) {
+    if (child.getLayoutWidth() == WRAP_CONTENT || child.getLayoutWidth() == FILL_PARENT) {
+      return child.measureContentWidth() + child.getPaddingVertical();
+    }
+    return child.getLayoutWidth();
+  }
+
+  private float measureChildHeight(UIWidget child) {
+    if (child.getLayoutWidth() == WRAP_CONTENT || child.getLayoutWidth() == FILL_PARENT) {
+      return child.measureContentHeight() + child.getPaddingHorizontal();
+    }
+    return child.getLayoutHeight();
+  }
+
+  @Override
   public void updateLayout(UIContainer container) {
     List<UIWidget> children = container.getLayoutAffectedChildren();
     if (children.isEmpty()) return;
@@ -62,16 +98,20 @@ public class RowLayout implements UILayout {
   private float resolveChildWidth(UIWidget child, float fillParentWidth) {
     if (child.getLayoutWidth() == FILL_PARENT) {
       return fillParentWidth;
+    } else if (child.getLayoutHeight() == WRAP_CONTENT) {
+      return measureChildWidth(child);
     } else {
-      return Math.max(0, child.getLayoutWidth());
+      return child.getLayoutWidth();
     }
   }
 
   private float resolveChildHeight(UIWidget child, float parentContentHeight) {
     if (child.getLayoutHeight() == FILL_PARENT) {
       return parentContentHeight;
+    } else if (child.getLayoutWidth() == WRAP_CONTENT) {
+      return measureChildHeight(child);
     } else {
-      return Math.max(0, child.getLayoutHeight());
+      return child.getLayoutHeight();
     }
   }
 

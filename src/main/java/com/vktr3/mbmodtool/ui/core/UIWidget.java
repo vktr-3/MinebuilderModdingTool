@@ -13,6 +13,10 @@ public abstract class UIWidget {
 
   protected UIVisibility visibility = UIVisibility.VISIBLE;
 
+  public abstract float measureContentWidth();
+
+  public abstract float measureContentHeight();
+
   public final void draw(SpriteBatch batch, UIRenderer renderer) {
     if (this.visibility != UIVisibility.VISIBLE) return;
 
@@ -102,6 +106,14 @@ public abstract class UIWidget {
     this.paddingRight = paddingRight;
     this.paddingBottom = paddingBottom;
     this.paddingLeft = paddingLeft;
+  }
+
+  public float getPaddingVertical() {
+    return paddingTop + paddingBottom;
+  }
+
+  public float getPaddingHorizontal() {
+    return paddingLeft + paddingRight;
   }
 
   public float getPaddingTop() {
