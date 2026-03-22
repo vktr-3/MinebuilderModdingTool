@@ -3,6 +3,8 @@ package com.vktr3.mbmodtool.ui.layout;
 import com.vktr3.mbmodtool.ui.core.UIContainer;
 import com.vktr3.mbmodtool.ui.core.UIWidget;
 
+import java.util.List;
+
 public class ColumnLayout implements UILayout {
   private final float spacing;
   private final UIAlignment horizontalAlignment;
@@ -22,13 +24,32 @@ public class ColumnLayout implements UILayout {
 
   @Override
   public void updateLayout(UIContainer container) {
-    float contentX = container.getContentX();
-    float contentWidth = container.getContentWidth();
+    List<UIWidget> children = container.getChildren();
+    if (children.isEmpty()) return;
 
-    float curY = container.getContentY();
-    for (UIWidget child : container.getChildren()) {
-      float childWidth = getChildWidth(child, contentWidth);
-      float childHeight = getChildHeight(child);
+    float contentX = container.getContentX();
+    float contentY = container.getContentY();
+    float contentWidth = container.getContentWidth();
+    float contentHeight = container.getContentHeight();
+
+    int parentFillCount = 0;
+    float fixedHeightSum = 0;
+    for (UIWidget child : children) {
+      if (child.getLayoutHeight() == FILL_PARENT) {
+        parentFillCount++;
+      } else {
+        fixedHeightSum += child.getLayoutHeight();
+      }
+    }
+
+    float totalSpacing = spacing * (children.size() - 1);
+    float remainingHeight = contentHeight - fixedHeightSum - totalSpacing;
+    float parentFillHeight = parentFillCount > 0 ? Math.max(0, remainingHeight) / parentFillCount : 0;
+
+    float curY = contentY;
+    for (UIWidget child : children) {
+      float childWidth = resolveChildWidth(child, contentWidth);
+      float childHeight = resolveChildHeight(child, parentFillHeight);
 
       float childX = getAlignedX(contentX, contentWidth, childWidth);
 
@@ -38,16 +59,20 @@ public class ColumnLayout implements UILayout {
     }
   }
 
-  private float getChildWidth(UIWidget child, float containerContentWidth) {
+  private float resolveChildWidth(UIWidget child, float parentContentWidth) {
     if (child.getLayoutWidth() == FILL_PARENT) {
-      return containerContentWidth;
+      return parentContentWidth;
     } else {
       return Math.max(0, child.getLayoutWidth());
     }
   }
 
-  private float getChildHeight(UIWidget child) {
-    return Math.max(0, child.getLayoutHeight());
+  private float resolveChildHeight(UIWidget child, float parentFillHeight) {
+    if (child.getLayoutHeight() == FILL_PARENT) {
+      return parentFillHeight;
+    } else {
+      return Math.max(0, child.getLayoutHeight());
+    }
   }
 
   private float getAlignedX(float contentX, float contentWidth, float childWidth) {

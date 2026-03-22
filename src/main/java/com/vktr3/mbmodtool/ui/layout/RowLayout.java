@@ -3,6 +3,8 @@ package com.vktr3.mbmodtool.ui.layout;
 import com.vktr3.mbmodtool.ui.core.UIContainer;
 import com.vktr3.mbmodtool.ui.core.UIWidget;
 
+import java.util.List;
+
 public class RowLayout implements UILayout {
   private final float spacing;
   private final UIAlignment verticalAlignment;
@@ -22,13 +24,32 @@ public class RowLayout implements UILayout {
 
   @Override
   public void updateLayout(UIContainer container) {
+    List<UIWidget> children = container.getChildren();
+    if (children.isEmpty()) return;
+
+    float contentX = container.getContentX();
     float contentY = container.getContentY();
+    float contentWidth = container.getContentWidth();
     float contentHeight = container.getContentHeight();
 
-    float curX = container.getContentX();
-    for (UIWidget child : container.getChildren()) {
-      float childWidth = getChildWidth(child);
-      float childHeight = getChildHeight(child, contentHeight);
+    int parentFillCount = 0;
+    float fixedWidthSum = 0;
+    for (UIWidget child : children) {
+      if (child.getLayoutWidth() == FILL_PARENT) {
+        parentFillCount++;
+      } else {
+        fixedWidthSum += child.getLayoutWidth();
+      }
+    }
+
+    float totalSpacing = spacing * (children.size() - 1);
+    float remainingWidth = contentWidth - fixedWidthSum - totalSpacing;
+    float parentFillWidth = parentFillCount > 0 ? Math.max(0, remainingWidth) / parentFillCount : 0;
+
+    float curX = contentX;
+    for (UIWidget child : children) {
+      float childWidth = resolveChildWidth(child, parentFillWidth);
+      float childHeight = resolveChildHeight(child, contentHeight);
 
       float childY = getAlignedY(contentY, contentHeight, childHeight);
 
@@ -38,13 +59,17 @@ public class RowLayout implements UILayout {
     }
   }
 
-  private float getChildWidth(UIWidget child) {
-    return Math.max(0, child.getLayoutWidth());
+  private float resolveChildWidth(UIWidget child, float fillParentWidth) {
+    if (child.getLayoutWidth() == FILL_PARENT) {
+      return fillParentWidth;
+    } else {
+      return Math.max(0, child.getLayoutWidth());
+    }
   }
 
-  private float getChildHeight(UIWidget child, float containerContentHeight) {
+  private float resolveChildHeight(UIWidget child, float parentContentHeight) {
     if (child.getLayoutHeight() == FILL_PARENT) {
-      return containerContentHeight;
+      return parentContentHeight;
     } else {
       return Math.max(0, child.getLayoutHeight());
     }

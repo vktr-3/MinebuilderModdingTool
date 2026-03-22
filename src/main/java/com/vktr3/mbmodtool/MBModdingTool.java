@@ -55,19 +55,19 @@ public class MBModdingTool extends ApplicationAdapter {
 
     Panel pnlContent = new Panel();
     pnlContent.setBackgroundColor(new Color(0.75F, 0.25F, 0.25F, 1));
-    pnlContent.setLayoutSize(FILL_PARENT, 256);
+    pnlContent.setLayoutSize(FILL_PARENT, FILL_PARENT);
     pnlContent.setPadding(8, 16);
     pnlContent.setLayout(new RowLayout(8, UIAlignment.CENTER));
     pnlRoot.addChild(pnlContent);
 
     Panel pnlLeft = new Panel();
     pnlLeft.setBackgroundColor(new Color(0, 0.75F, 1, 1));
-    pnlLeft.setLayoutSize(256, 64);
+    pnlLeft.setLayoutSize(256, FILL_PARENT);
     pnlContent.addChild(pnlLeft);
 
     Panel pnlRight = new Panel();
     pnlRight.setBackgroundColor(new Color(1, 0.75F, 0, 1));
-    pnlRight.setLayoutSize(512, FILL_PARENT);
+    pnlRight.setLayoutSize(FILL_PARENT, FILL_PARENT);
     pnlContent.addChild(pnlRight);
 
     Panel pnlFooter = new Panel();
