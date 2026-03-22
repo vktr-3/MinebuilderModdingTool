@@ -3,7 +3,6 @@ package com.vktr3.mbmodtool.ui.layout;
 import com.vktr3.mbmodtool.ui.core.UIContainer;
 import com.vktr3.mbmodtool.ui.core.UIWidget;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ColumnLayout implements UILayout {
@@ -25,12 +24,7 @@ public class ColumnLayout implements UILayout {
 
   @Override
   public void updateLayout(UIContainer container) {
-    List<UIWidget> children = new ArrayList<>();
-    for (UIWidget child : container.getChildren()) {
-      if (child.affectsLayout()) {
-        children.add(child);
-      }
-    }
+    List<UIWidget> children = container.getLayoutAffectedChildren();
     if (children.isEmpty()) return;
 
     float contentX = container.getContentX();

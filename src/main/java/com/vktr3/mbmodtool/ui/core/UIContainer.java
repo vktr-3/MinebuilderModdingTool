@@ -46,6 +46,16 @@ public abstract class UIContainer extends UIWidget {
     return Collections.unmodifiableList(children);
   }
 
+  public List<UIWidget> getLayoutAffectedChildren() {
+    List<UIWidget> affectedChildren = new ArrayList<>();
+    for (UIWidget child : children) {
+      if (child.affectsLayout()) {
+        affectedChildren.add(child);
+      }
+    }
+    return affectedChildren;
+  }
+
   public UILayout getLayout() {
     return layout;
   }
