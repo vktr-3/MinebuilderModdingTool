@@ -23,6 +23,6 @@ public class ColumnLayout implements UILayout {
   }
 
   private float getChildHeight(UIWidget child) {
-    return child.getLayoutHeight();
+    return Math.max(0, child.getLayoutHeight());
   }
 }

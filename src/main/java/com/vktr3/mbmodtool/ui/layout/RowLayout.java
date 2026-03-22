@@ -23,6 +23,6 @@ public class RowLayout implements UILayout {
   }
 
   private float getChildWidth(UIWidget child) {
-    return child.getLayoutWidth();
+    return Math.max(0, child.getLayoutWidth());
   }
 }
