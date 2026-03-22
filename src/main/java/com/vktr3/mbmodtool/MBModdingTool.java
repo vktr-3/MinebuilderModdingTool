@@ -9,6 +9,8 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.vktr3.mbmodtool.gdx.OrthoSpriteBatch;
 import com.vktr3.mbmodtool.ui.core.UIDocument;
+import com.vktr3.mbmodtool.ui.layout.ColumnLayout;
+import com.vktr3.mbmodtool.ui.layout.RowLayout;
 import com.vktr3.mbmodtool.ui.widgets.Panel;
 
 public class MBModdingTool extends ApplicationAdapter {
@@ -19,8 +21,6 @@ public class MBModdingTool extends ApplicationAdapter {
   private Viewport viewport;
 
   private UIDocument ui;
-  private Panel pnlRoot;
-  private Panel pnlInner;
 
   @Override
   public void create() {
@@ -40,12 +40,35 @@ public class MBModdingTool extends ApplicationAdapter {
   }
 
   private void initUI() {
-    pnlRoot = new Panel();
+    Panel pnlRoot = new Panel();
     pnlRoot.setBackgroundColor(Color.BLACK);
+    pnlRoot.setLayout(new ColumnLayout(8));
 
-    pnlInner = new Panel();
-    pnlInner.setBackgroundColor(new Color(1, 0.75F, 1, 0.5F));
-    pnlRoot.addChild(pnlInner);
+    Panel pnlHeader = new Panel();
+    pnlHeader.setBackgroundColor(new Color(1, 0.75F, 1, 0.5F));
+    pnlHeader.setLayoutSize(0, 80);
+    pnlRoot.addChild(pnlHeader);
+
+    Panel pnlContent = new Panel();
+    pnlContent.setBackgroundColor(new Color(0.75F, 1, 1, 0.5F));
+    pnlContent.setLayoutSize(0, 300);
+    pnlContent.setLayout(new RowLayout(16));
+    pnlRoot.addChild(pnlContent);
+
+    Panel pnlLeft = new Panel();
+    pnlLeft.setBackgroundColor(new Color(0, 0.75F, 1, 0.5F));
+    pnlLeft.setLayoutSize(250, 0);
+    pnlContent.addChild(pnlLeft);
+
+    Panel pnlRight = new Panel();
+    pnlRight.setBackgroundColor(new Color(1, 0.75F, 0, 0.5F));
+    pnlRight.setLayoutSize(540, 0);
+    pnlContent.addChild(pnlRight);
+
+    Panel pnlFooter = new Panel();
+    pnlFooter.setBackgroundColor(new Color(1, 1, 0.75F, 0.5F));
+    pnlFooter.setLayoutSize(0, 40);
+    pnlRoot.addChild(pnlFooter);
 
     ui = new UIDocument(pnlRoot);
   }
@@ -71,7 +94,7 @@ public class MBModdingTool extends ApplicationAdapter {
 
   private void resizeUI(int width, int height) {
     ui.setSize(width, height);
-    pnlInner.setBounds(8, 8, pnlRoot.getWidth() - 16, pnlRoot.getHeight() - 16);
+    ui.getRoot().updateLayout();
   }
 
   @Override

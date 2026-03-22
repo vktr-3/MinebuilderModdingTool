@@ -7,6 +7,7 @@ public abstract class UIWidget {
   protected UIContainer parent;
 
   protected float x, y, width, height;
+  protected float layoutWidth, layoutHeight;
 
   protected boolean visible = true;
 
@@ -29,6 +30,16 @@ public abstract class UIWidget {
     this.parent = parent;
   }
 
+  public float getAbsoluteX() {
+    if (parent == null) return x;
+    return parent.getAbsoluteX() + x;
+  }
+
+  public float getAbsoluteY() {
+    if (parent == null) return y;
+    return parent.getAbsoluteY() + y;
+  }
+
   public void setBounds(float x, float y, float width, float height) {
     setPosition(x, y);
     setSize(width, height);
@@ -42,16 +53,6 @@ public abstract class UIWidget {
   public void setSize(float width, float height) {
     this.width = width;
     this.height = height;
-  }
-
-  public float getAbsoluteX() {
-    if (parent == null) return x;
-    return parent.getAbsoluteX() + x;
-  }
-
-  public float getAbsoluteY() {
-    if (parent == null) return y;
-    return parent.getAbsoluteY() + y;
   }
 
   public float getX() {
@@ -68,6 +69,27 @@ public abstract class UIWidget {
 
   public float getHeight() {
     return height;
+  }
+
+  public void setLayoutSize(float layoutWidth, float layoutHeight) {
+    setLayoutWidth(layoutWidth);
+    setLayoutHeight(layoutHeight);
+  }
+
+  public float getLayoutWidth() {
+    return layoutWidth;
+  }
+
+  public void setLayoutWidth(float preferredWidth) {
+    this.layoutWidth = preferredWidth;
+  }
+
+  public float getLayoutHeight() {
+    return layoutHeight;
+  }
+
+  public void setLayoutHeight(float layoutHeight) {
+    this.layoutHeight = layoutHeight;
   }
 
   public boolean isVisible() {
