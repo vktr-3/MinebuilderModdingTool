@@ -5,9 +5,19 @@ import com.vktr3.mbmodtool.ui.core.UIWidget;
 
 public class ColumnLayout implements UILayout {
   private final float spacing;
+  private final UIAlignment horizontalAlignment;
+
+  public ColumnLayout() {
+    this(0);
+  }
 
   public ColumnLayout(float spacing) {
+    this(spacing, UIAlignment.START);
+  }
+
+  public ColumnLayout(float spacing, UIAlignment horizontalAlignment) {
     this.spacing = spacing;
+    this.horizontalAlignment = horizontalAlignment;
   }
 
   @Override
@@ -19,7 +29,10 @@ public class ColumnLayout implements UILayout {
     for (UIWidget child : container.getChildren()) {
       float childWidth = getChildWidth(child, contentWidth);
       float childHeight = getChildHeight(child);
-      child.setBounds(contentX, curY, childWidth, childHeight);
+
+      float childX = getAlignedX(contentX, contentWidth, childWidth);
+
+      child.setBounds(childX, curY, childWidth, childHeight);
 
       curY += childHeight + spacing;
     }
@@ -35,5 +48,13 @@ public class ColumnLayout implements UILayout {
 
   private float getChildHeight(UIWidget child) {
     return Math.max(0, child.getLayoutHeight());
+  }
+
+  private float getAlignedX(float contentX, float contentWidth, float childWidth) {
+    return switch (horizontalAlignment) {
+      case START -> contentX;
+      case CENTER -> contentX + (contentWidth - childWidth) * 0.5F;
+      case END -> contentX + (contentWidth - childWidth);
+    };
   }
 }

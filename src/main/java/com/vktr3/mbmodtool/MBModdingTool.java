@@ -11,6 +11,7 @@ import com.vktr3.mbmodtool.gdx.OrthoSpriteBatch;
 import com.vktr3.mbmodtool.ui.core.UIDocument;
 import com.vktr3.mbmodtool.ui.layout.ColumnLayout;
 import com.vktr3.mbmodtool.ui.layout.RowLayout;
+import com.vktr3.mbmodtool.ui.layout.UIAlignment;
 import com.vktr3.mbmodtool.ui.widgets.Panel;
 
 import static com.vktr3.mbmodtool.ui.layout.UILayout.MATCH_PARENT;
@@ -45,7 +46,7 @@ public class MBModdingTool extends ApplicationAdapter {
     Panel pnlRoot = new Panel();
     pnlRoot.setBackgroundColor(Color.BLACK);
     pnlRoot.setPadding(8);
-    pnlRoot.setLayout(new ColumnLayout(8));
+    pnlRoot.setLayout(new ColumnLayout(8, UIAlignment.CENTER));
 
     Panel pnlHeader = new Panel();
     pnlHeader.setBackgroundColor(new Color(0.25F, 0.75F, 0.25F, 1));
@@ -56,7 +57,7 @@ public class MBModdingTool extends ApplicationAdapter {
     pnlContent.setBackgroundColor(new Color(0.75F, 0.25F, 0.25F, 1));
     pnlContent.setLayoutSize(MATCH_PARENT, 256);
     pnlContent.setPadding(8, 16);
-    pnlContent.setLayout(new RowLayout(8));
+    pnlContent.setLayout(new RowLayout(8, UIAlignment.CENTER));
     pnlRoot.addChild(pnlContent);
 
     Panel pnlLeft = new Panel();
