@@ -128,8 +128,8 @@ public abstract class UIWidget {
     return layoutWidth;
   }
 
-  public void setLayoutWidth(float preferredWidth) {
-    this.layoutWidth = preferredWidth;
+  public void setLayoutWidth(float layoutWidth) {
+    this.layoutWidth = layoutWidth;
   }
 
   public float getLayoutHeight() {
