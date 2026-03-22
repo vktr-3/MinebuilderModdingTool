@@ -18,7 +18,8 @@ public class RowLayout implements UILayout {
     float curX = container.getContentX();
     for (UIWidget child : container.getChildren()) {
       float childWidth = getChildWidth(child);
-      child.setBounds(curX, contentY, childWidth, contentHeight);
+      float childHeight = getChildHeight(child, contentHeight);
+      child.setBounds(curX, contentY, childWidth, childHeight);
 
       curX += childWidth + spacing;
     }
@@ -26,5 +27,13 @@ public class RowLayout implements UILayout {
 
   private float getChildWidth(UIWidget child) {
     return Math.max(0, child.getLayoutWidth());
+  }
+
+  private float getChildHeight(UIWidget child, float containerContentHeight) {
+    if (child.getLayoutHeight() == MATCH_PARENT) {
+      return containerContentHeight;
+    } else {
+      return Math.max(0, child.getLayoutHeight());
+    }
   }
 }

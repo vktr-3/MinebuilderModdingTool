@@ -13,6 +13,8 @@ import com.vktr3.mbmodtool.ui.layout.ColumnLayout;
 import com.vktr3.mbmodtool.ui.layout.RowLayout;
 import com.vktr3.mbmodtool.ui.widgets.Panel;
 
+import static com.vktr3.mbmodtool.ui.layout.UILayout.MATCH_PARENT;
+
 public class MBModdingTool extends ApplicationAdapter {
   private AssetManager assets;
   private OrthoSpriteBatch batch;
@@ -47,29 +49,29 @@ public class MBModdingTool extends ApplicationAdapter {
 
     Panel pnlHeader = new Panel();
     pnlHeader.setBackgroundColor(new Color(0.25F, 0.75F, 0.25F, 1));
-    pnlHeader.setLayoutSize(0, 80);
+    pnlHeader.setLayoutSize(MATCH_PARENT, 96);
     pnlRoot.addChild(pnlHeader);
 
     Panel pnlContent = new Panel();
     pnlContent.setBackgroundColor(new Color(0.75F, 0.25F, 0.25F, 1));
-    pnlContent.setLayoutSize(0, 300);
+    pnlContent.setLayoutSize(MATCH_PARENT, 256);
     pnlContent.setPadding(8, 16);
     pnlContent.setLayout(new RowLayout(8));
     pnlRoot.addChild(pnlContent);
 
     Panel pnlLeft = new Panel();
     pnlLeft.setBackgroundColor(new Color(0, 0.75F, 1, 1));
-    pnlLeft.setLayoutSize(250, 0);
+    pnlLeft.setLayoutSize(256, 64);
     pnlContent.addChild(pnlLeft);
 
     Panel pnlRight = new Panel();
     pnlRight.setBackgroundColor(new Color(1, 0.75F, 0, 1));
-    pnlRight.setLayoutSize(540, 0);
+    pnlRight.setLayoutSize(512, MATCH_PARENT);
     pnlContent.addChild(pnlRight);
 
     Panel pnlFooter = new Panel();
     pnlFooter.setBackgroundColor(new Color(1, 1, 0.75F, 1));
-    pnlFooter.setLayoutSize(0, 48);
+    pnlFooter.setLayoutSize(512, 64);
     pnlRoot.addChild(pnlFooter);
 
     ui = new UIDocument(pnlRoot);
