@@ -12,6 +12,7 @@ import com.vktr3.mbmodtool.ui.core.UIDocument;
 import com.vktr3.mbmodtool.ui.layout.ColumnLayout;
 import com.vktr3.mbmodtool.ui.layout.RowLayout;
 import com.vktr3.mbmodtool.ui.layout.UIAlignment;
+import com.vktr3.mbmodtool.ui.layout.UIVisibility;
 import com.vktr3.mbmodtool.ui.widgets.Panel;
 
 import static com.vktr3.mbmodtool.ui.layout.UILayout.FILL_PARENT;
@@ -56,19 +57,25 @@ public class MBModdingTool extends ApplicationAdapter {
     Panel pnlContent = new Panel();
     pnlContent.setBackgroundColor(new Color(0.75F, 0.25F, 0.25F, 1));
     pnlContent.setLayoutSize(FILL_PARENT, FILL_PARENT);
-    pnlContent.setPadding(8, 16);
+    pnlContent.setPadding(8);
     pnlContent.setLayout(new RowLayout(8, UIAlignment.CENTER));
     pnlRoot.addChild(pnlContent);
 
-    Panel pnlLeft = new Panel();
-    pnlLeft.setBackgroundColor(new Color(0, 0.75F, 1, 1));
-    pnlLeft.setLayoutSize(256, FILL_PARENT);
-    pnlContent.addChild(pnlLeft);
+    Panel pnlTools = new Panel();
+    pnlTools.setBackgroundColor(new Color(0.75F, 1, 0, 1));
+    pnlTools.setLayoutSize(64, FILL_PARENT);
+    pnlContent.addChild(pnlTools);
 
-    Panel pnlRight = new Panel();
-    pnlRight.setBackgroundColor(new Color(1, 0.75F, 0, 1));
-    pnlRight.setLayoutSize(FILL_PARENT, FILL_PARENT);
-    pnlContent.addChild(pnlRight);
+    Panel pnlContext = new Panel();
+    pnlContext.setBackgroundColor(new Color(0, 0.75F, 1, 1));
+    pnlContext.setLayoutSize(256, FILL_PARENT);
+    pnlContext.setVisibility(UIVisibility.GONE);
+    pnlContent.addChild(pnlContext);
+
+    Panel pnlEdit = new Panel();
+    pnlEdit.setBackgroundColor(new Color(1, 0.75F, 0, 1));
+    pnlEdit.setLayoutSize(FILL_PARENT, FILL_PARENT);
+    pnlContent.addChild(pnlEdit);
 
     Panel pnlFooter = new Panel();
     pnlFooter.setBackgroundColor(new Color(1, 1, 0.75F, 1));

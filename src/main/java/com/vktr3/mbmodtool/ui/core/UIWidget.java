@@ -2,6 +2,7 @@ package com.vktr3.mbmodtool.ui.core;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.vktr3.mbmodtool.ui.graphics.UIRenderer;
+import com.vktr3.mbmodtool.ui.layout.UIVisibility;
 
 public abstract class UIWidget {
   protected UIContainer parent;
@@ -10,10 +11,10 @@ public abstract class UIWidget {
   protected float paddingTop, paddingRight, paddingBottom, paddingLeft;
   protected float layoutWidth, layoutHeight;
 
-  protected boolean visible = true;
+  protected UIVisibility visibility = UIVisibility.VISIBLE;
 
   public final void draw(SpriteBatch batch, UIRenderer renderer) {
-    if (!visible) return;
+    if (this.visibility != UIVisibility.VISIBLE) return;
 
     drawBackground(batch, renderer);
     drawContent(batch, renderer);
@@ -140,11 +141,15 @@ public abstract class UIWidget {
     this.layoutHeight = layoutHeight;
   }
 
-  public boolean isVisible() {
-    return visible;
+  public boolean affectsLayout() {
+    return this.visibility != UIVisibility.GONE;
   }
 
-  public void setVisible(boolean visible) {
-    this.visible = visible;
+  public UIVisibility getVisibility() {
+    return visibility;
+  }
+
+  public void setVisibility(UIVisibility visibility) {
+    this.visibility = visibility;
   }
 }
