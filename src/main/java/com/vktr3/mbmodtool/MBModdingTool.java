@@ -42,32 +42,34 @@ public class MBModdingTool extends ApplicationAdapter {
   private void initUI() {
     Panel pnlRoot = new Panel();
     pnlRoot.setBackgroundColor(Color.BLACK);
+    pnlRoot.setPadding(8);
     pnlRoot.setLayout(new ColumnLayout(8));
 
     Panel pnlHeader = new Panel();
-    pnlHeader.setBackgroundColor(new Color(1, 0.75F, 1, 0.5F));
+    pnlHeader.setBackgroundColor(new Color(0.25F, 0.75F, 0.25F, 1));
     pnlHeader.setLayoutSize(0, 80);
     pnlRoot.addChild(pnlHeader);
 
     Panel pnlContent = new Panel();
-    pnlContent.setBackgroundColor(new Color(0.75F, 1, 1, 0.5F));
+    pnlContent.setBackgroundColor(new Color(0.75F, 0.25F, 0.25F, 1));
     pnlContent.setLayoutSize(0, 300);
-    pnlContent.setLayout(new RowLayout(16));
+    pnlContent.setPadding(8, 16);
+    pnlContent.setLayout(new RowLayout(8));
     pnlRoot.addChild(pnlContent);
 
     Panel pnlLeft = new Panel();
-    pnlLeft.setBackgroundColor(new Color(0, 0.75F, 1, 0.5F));
+    pnlLeft.setBackgroundColor(new Color(0, 0.75F, 1, 1));
     pnlLeft.setLayoutSize(250, 0);
     pnlContent.addChild(pnlLeft);
 
     Panel pnlRight = new Panel();
-    pnlRight.setBackgroundColor(new Color(1, 0.75F, 0, 0.5F));
+    pnlRight.setBackgroundColor(new Color(1, 0.75F, 0, 1));
     pnlRight.setLayoutSize(540, 0);
     pnlContent.addChild(pnlRight);
 
     Panel pnlFooter = new Panel();
-    pnlFooter.setBackgroundColor(new Color(1, 1, 0.75F, 0.5F));
-    pnlFooter.setLayoutSize(0, 40);
+    pnlFooter.setBackgroundColor(new Color(1, 1, 0.75F, 1));
+    pnlFooter.setLayoutSize(0, 48);
     pnlRoot.addChild(pnlFooter);
 
     ui = new UIDocument(pnlRoot);

@@ -12,11 +12,13 @@ public class ColumnLayout implements UILayout {
 
   @Override
   public void updateLayout(UIContainer container) {
-    float curY = 0;
+    float contentX = container.getContentX();
+    float contentWidth = container.getContentWidth();
 
+    float curY = container.getContentY();
     for (UIWidget child : container.getChildren()) {
       float childHeight = getChildHeight(child);
-      child.setBounds(0, curY, container.getWidth(), childHeight);
+      child.setBounds(contentX, curY, contentWidth, childHeight);
 
       curY += childHeight + spacing;
     }

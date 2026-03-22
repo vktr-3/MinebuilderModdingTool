@@ -7,6 +7,7 @@ public abstract class UIWidget {
   protected UIContainer parent;
 
   protected float x, y, width, height;
+  protected float paddingTop, paddingRight, paddingBottom, paddingLeft;
   protected float layoutWidth, layoutHeight;
 
   protected boolean visible = true;
@@ -69,6 +70,53 @@ public abstract class UIWidget {
 
   public float getHeight() {
     return height;
+  }
+
+  public float getContentX() {
+    return paddingLeft;
+  }
+
+  public float getContentY() {
+    return paddingTop;
+  }
+
+  public float getContentWidth() {
+    return Math.max(0, getWidth() - paddingLeft - paddingRight);
+  }
+
+  public float getContentHeight() {
+    return Math.max(0, getHeight() - paddingTop - paddingBottom);
+  }
+
+  public void setPadding(float padding) {
+    this.setPadding(padding, padding, padding, padding);
+  }
+
+  public void setPadding(float paddingVertical, float paddingHorizontal) {
+    this.setPadding(paddingVertical, paddingHorizontal, paddingVertical, paddingHorizontal);
+  }
+
+  public void setPadding(float paddingTop, float paddingRight, float paddingBottom, float paddingLeft) {
+    this.paddingTop = paddingTop;
+    this.paddingRight = paddingRight;
+    this.paddingBottom = paddingBottom;
+    this.paddingLeft = paddingLeft;
+  }
+
+  public float getPaddingTop() {
+    return paddingTop;
+  }
+
+  public float getPaddingRight() {
+    return paddingRight;
+  }
+
+  public float getPaddingBottom() {
+    return paddingBottom;
+  }
+
+  public float getPaddingLeft() {
+    return paddingLeft;
   }
 
   public void setLayoutSize(float layoutWidth, float layoutHeight) {

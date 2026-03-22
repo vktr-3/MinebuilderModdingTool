@@ -12,11 +12,13 @@ public class RowLayout implements UILayout {
 
   @Override
   public void updateLayout(UIContainer container) {
-    float curX = 0;
+    float contentY = container.getContentY();
+    float contentHeight = container.getContentHeight();
 
+    float curX = container.getContentX();
     for (UIWidget child : container.getChildren()) {
       float childWidth = getChildWidth(child);
-      child.setBounds(curX, 0, childWidth, container.getHeight());
+      child.setBounds(curX, contentY, childWidth, contentHeight);
 
       curX += childWidth + spacing;
     }
