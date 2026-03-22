@@ -43,7 +43,7 @@ public class RowLayout implements UILayout {
   }
 
   private float getChildHeight(UIWidget child, float containerContentHeight) {
-    if (child.getLayoutHeight() == MATCH_PARENT) {
+    if (child.getLayoutHeight() == FILL_PARENT) {
       return containerContentHeight;
     } else {
       return Math.max(0, child.getLayoutHeight());

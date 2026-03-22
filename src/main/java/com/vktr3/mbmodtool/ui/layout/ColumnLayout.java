@@ -39,7 +39,7 @@ public class ColumnLayout implements UILayout {
   }
 
   private float getChildWidth(UIWidget child, float containerContentWidth) {
-    if (child.getLayoutWidth() == MATCH_PARENT) {
+    if (child.getLayoutWidth() == FILL_PARENT) {
       return containerContentWidth;
     } else {
       return Math.max(0, child.getLayoutWidth());
