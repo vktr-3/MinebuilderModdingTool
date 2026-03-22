@@ -55,7 +55,7 @@ public class Main {
     gdxConfig.setTitle("Minebuilder Modding Tool");
     gdxConfig.useVsync(true);
     gdxConfig.setForegroundFPS(Lwjgl3ApplicationConfiguration.getDisplayMode().refreshRate + 1);
-    gdxConfig.setWindowedMode(640, 480);
+    gdxConfig.setWindowedMode(1280, 720);
     gdxConfig.setWindowIcon("app-icons/128.png", "app-icons/64.png", "app-icons/32.png", "app-icons/16.png");
 
     new Lwjgl3Application(new MBModdingTool(), gdxConfig);
