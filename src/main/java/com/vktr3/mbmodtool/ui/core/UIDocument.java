@@ -21,6 +21,7 @@ public class UIDocument implements Disposable {
 
   public UIDocument(UIContainer root) {
     this.root = root;
+    this.root.setDocument(this);
 
     this.renderer = new UIRenderer();
   }

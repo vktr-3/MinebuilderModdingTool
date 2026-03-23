@@ -9,6 +9,7 @@ public abstract class UIWidget {
   // # VARIABLES
   // ################################################################
 
+  private UIDocument document;
   protected UIContainer parent;
 
   protected float x, y, width, height;
@@ -43,6 +44,16 @@ public abstract class UIWidget {
   // ################################################################
   // # GETTERS, SETTERS
   // ################################################################
+
+  public UIDocument getDocument() {
+    if (document != null) return document;
+    if (parent != null) return parent.getDocument();
+    return null;
+  }
+
+  protected void setDocument(UIDocument document) {
+    this.document = document;
+  }
 
   public UIContainer getParent() {
     return parent;
