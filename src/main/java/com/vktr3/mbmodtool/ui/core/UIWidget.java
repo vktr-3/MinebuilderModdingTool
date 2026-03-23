@@ -5,6 +5,10 @@ import com.vktr3.mbmodtool.ui.graphics.UIRenderer;
 import com.vktr3.mbmodtool.ui.layout.UIVisibility;
 
 public abstract class UIWidget {
+  // ################################################################
+  // # VARIABLES
+  // ################################################################
+
   protected UIContainer parent;
 
   protected float x, y, width, height;
@@ -13,9 +17,17 @@ public abstract class UIWidget {
 
   protected UIVisibility visibility = UIVisibility.VISIBLE;
 
+  // ################################################################
+  // # LAYOUT METHODS
+  // ################################################################
+
   public abstract float measureContentWidth();
 
   public abstract float measureContentHeight();
+
+  // ################################################################
+  // # DRAW METHODS
+  // ################################################################
 
   public final void draw(SpriteBatch batch, UIRenderer renderer) {
     if (this.visibility != UIVisibility.VISIBLE) return;
@@ -27,6 +39,10 @@ public abstract class UIWidget {
   protected abstract void drawBackground(SpriteBatch batch, UIRenderer renderer);
 
   protected abstract void drawContent(SpriteBatch batch, UIRenderer renderer);
+
+  // ################################################################
+  // # GETTERS, SETTERS
+  // ################################################################
 
   public UIContainer getParent() {
     return parent;

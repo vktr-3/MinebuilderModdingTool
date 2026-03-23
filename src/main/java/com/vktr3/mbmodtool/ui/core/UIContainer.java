@@ -9,8 +9,16 @@ import java.util.Collections;
 import java.util.List;
 
 public abstract class UIContainer extends UIWidget {
+  // ################################################################
+  // # VARIABLES
+  // ################################################################
+
   protected final List<UIWidget> children = new ArrayList<>();
   protected UILayout layout;
+
+  // ################################################################
+  // # LAYOUT METHODS
+  // ################################################################
 
   @Override
   public float measureContentWidth() {
@@ -30,12 +38,20 @@ public abstract class UIContainer extends UIWidget {
     }
   }
 
+  // ################################################################
+  // # DRAW METHODS
+  // ################################################################
+
   @Override
   protected void drawContent(SpriteBatch batch, UIRenderer renderer) {
     for (UIWidget child : children) {
       child.draw(batch, renderer);
     }
   }
+
+  // ################################################################
+  // # GETTERS, SETTERS
+  // ################################################################
 
   public void addChild(UIWidget child) {
     if (child == null || child == this || child.getParent() != null) return;
